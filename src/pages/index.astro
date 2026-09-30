@@ -9,21 +9,21 @@ const habilitats = [
 ];
 
 const llenguatges = [
-  { nom: "Java", logo: "/java.png" },
-  { nom: "PHP", logo: "/php.png" },
-  { nom: "C#", logo: "/csharp.png" },
-  { nom: "HTML", logo: "/html.png" },
-  { nom: "CSS", logo: "/css.png" },
-  { nom: "SQL", logo: "/sql.png" },
+  { nom: "Java", logo: "java.png" },
+  { nom: "PHP", logo: "php.png" },
+  { nom: "C#", logo: "csharp.png" },
+  { nom: "HTML", logo: "html.png" },
+  { nom: "CSS", logo: "css.png" },
+  { nom: "SQL", logo: "sql.png" },
 ];
 const tecnologies = [
-  { nom: ".NET", logo: "/net.png" },
-  { nom: "Eclipse", logo: "/eclipse.png" },
-  { nom: "Visual Studio Code", logo: "/visualstudio.png" },
+  { nom: ".NET", logo: "net.png" },
+  { nom: "Eclipse", logo: "eclipse.png" },
+  { nom: "Visual Studio Code", logo: "visualstudio.png" },
 ];
 const sistemes = [
-  { nom: "Windows", logo: "/windows.png" },
-  { nom: "Linux", logo: "/linux.png" },
+  { nom: "Windows", logo: "windows.png" },
+  { nom: "Linux", logo: "linux.png" },
 ];
 
 const formacio = [
@@ -72,6 +72,8 @@ const projectes = [
   { titol: "", descripcio: "", tech: "php" },
   { titol: "", descripcio: "", tech: "web" },
 ];
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="ca">
@@ -83,7 +85,7 @@ const projectes = [
   </head>
   <body>
     <header class="hero">
-      <img class="foto" src="/foto.jpeg" alt="Foto d'Ariadna Pagès Margalef" />
+      <img class="foto" src={`${base}foto.jpeg`} alt="Foto d'Ariadna Pagès Margalef" />
       <h1>Ariadna Pagès Margalef</h1>
       <p class="rol">Estudiant de DAM · Reus</p>
       <div class="contacte">
@@ -115,21 +117,21 @@ const projectes = [
         <h3>Llenguatges de programació</h3>
         <ul class="llista-xips amb-logo">
           {llenguatges.map((l) => (
-            <li><img src={l.logo} alt="" /> {l.nom}</li>
+            <li><img src={`${base}${l.logo}`} alt="" /> {l.nom}</li>
           ))}
         </ul>
 
         <h3>Tecnologies i eines</h3>
         <ul class="llista-xips amb-logo">
           {tecnologies.map((t) => (
-            <li><img src={t.logo} alt="" /> {t.nom}</li>
+            <li><img src={`${base}${t.logo}`} alt="" /> {t.nom}</li>
           ))}
         </ul>
 
         <h3>Administració de sistemes</h3>
         <ul class="llista-xips amb-logo">
           {sistemes.map((s) => (
-            <li><img src={s.logo} alt="" /> {s.nom}</li>
+            <li><img src={`${base}${s.logo}`} alt="" /> {s.nom}</li>
           ))}
         </ul>
       </section>
@@ -183,9 +185,9 @@ const projectes = [
 
     <style>
       body {
-        --blau-fosc: #7a1736;
-        --blau: #b8305f;
-        --blau-clar: #fbe2ea;
+        --granate-fosc: #7a1736;
+        --granate: #b8305f;
+        --rosa-clar: #fbe2ea;
         --gris-fosc: #3d4852;
         --gris: #6b7785;
         --gris-clar: #faf3f4;
@@ -198,7 +200,7 @@ const projectes = [
       }
 
       .hero {
-        background: linear-gradient(135deg, var(--blau-fosc), var(--blau));
+        background: linear-gradient(135deg, var(--granate-fosc), var(--granate));
         color: white;
         text-align: center;
         padding: 3rem 1rem 2.5rem;
@@ -208,7 +210,7 @@ const projectes = [
       }
       .rol {
         margin: 0 0 1.2rem;
-        color: var(--blau-clar);
+        color: var(--rosa-clar);
       }
       .foto {
         width: 220px;
@@ -245,8 +247,8 @@ const projectes = [
         margin-bottom: 2.5rem;
       }
       h2 {
-        color: var(--blau-fosc);
-        border-bottom: 3px solid var(--blau);
+        color: var(--granate-fosc);
+        border-bottom: 3px solid var(--granate);
         padding-bottom: 0.3rem;
         display: inline-block;
       }
@@ -259,8 +261,8 @@ const projectes = [
         padding: 0;
       }
       .llista-xips li {
-        background: var(--blau-clar);
-        color: var(--blau-fosc);
+        background: var(--rosa-clar);
+        color: var(--granate-fosc);
         padding: 0.3rem 0.9rem;
         border-radius: 999px;
         font-size: 0.9rem;
@@ -271,7 +273,7 @@ const projectes = [
         align-items: center;
         gap: 0.5rem;
         background: white;
-        border: 1px solid var(--blau-clar);
+        border: 1px solid var(--rosa-clar);
         padding: 0.4rem 1rem 0.4rem 0.6rem;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         transition: transform 0.15s;
@@ -287,7 +289,7 @@ const projectes = [
 
       .targeta {
         background: white;
-        border-left: 5px solid var(--blau);
+        border-left: 5px solid var(--granate);
         border-radius: 8px;
         padding: 1rem 1.2rem;
         margin-bottom: 1rem;
@@ -295,7 +297,7 @@ const projectes = [
       }
       .targeta h3 {
         margin: 0 0 0.2rem;
-        color: var(--blau-fosc);
+        color: var(--granate-fosc);
       }
       .subtitol {
         color: var(--gris);
@@ -317,13 +319,13 @@ const projectes = [
       .filtres button {
         padding: 0.4rem 0.9rem;
         border-radius: 999px;
-        border: 1px solid var(--blau);
+        border: 1px solid var(--granate);
         background: white;
-        color: var(--blau);
+        color: var(--granate);
         cursor: pointer;
       }
       .filtres button.actiu {
-        background: var(--blau);
+        background: var(--granate);
         color: white;
       }
       .graella-projectes {
